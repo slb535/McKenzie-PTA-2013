@@ -83,9 +83,9 @@ function wpsites_left_header_widget() {
     }
 }
 
-add_action('genesis_before_header', 'clear_floats');
+add_action('genesis_before_header', 'pta_clear_floats');
 
-function clear_floats() {
+function pta_clear_floats() {
     ?>
     <div class="clearfix"></div>
 <?php }
