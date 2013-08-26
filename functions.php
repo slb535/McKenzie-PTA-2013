@@ -38,36 +38,45 @@ add_action('genesis_before_header', 'open_navbar_wrap');
 
 function open_navbar_wrap() {
     ?>
-    <div class="blue_navbar_wrap">
-        <?php
-    }
+    <div class="top-navbar-wrap"><div class="top-navbar">
+            <?php
+        }
 
 //* Reposition the secondary navigation menu
-    remove_action('genesis_after_header', 'genesis_do_subnav');
-    add_action('genesis_before_header', 'genesis_do_subnav');
+        remove_action('genesis_after_header', 'genesis_do_subnav');
+        add_action('genesis_before_header', 'genesis_do_subnav');
 
 //* Reposition the secondary navigation menu
-    remove_action('genesis_after_header', 'genesis_do_tertnav');
-    add_action('genesis_before_header', 'genesis_do_tertnav');
+        remove_action('genesis_after_header', 'genesis_do_tertnav');
+        add_action('genesis_before_header', 'genesis_do_tertnav');
 
 
 
 //* Reposition the primary navigation menu
-    remove_action('genesis_after_header', 'genesis_do_nav');
+        remove_action('genesis_after_header', 'genesis_do_nav');
 
 
-    add_action('genesis_before_header', 'close_navbar_wrap');
+        add_action('genesis_before_header', 'close_navbar_wrap');
 
-    function close_navbar_wrap() {
-        ?>
-        <div class="clearfix"></div></div>
+        function close_navbar_wrap() {
+            ?>
+            <div class="clearfix"></div></div></div>
     <?php
 }
 
+/** Custom image sizes */
+add_image_size('group-thumbnail', 50, 40, TRUE);
+
+
+// Use somewhere else or delete
 add_action('genesis_before_header', 'pta_clear_floats');
 
 function pta_clear_floats() {
     ?>
     <div class="clearfix"></div>
-<?php }
+    <?php
+}
+
+/** Remove the post meta function */
+remove_action('genesis_after_post_content', 'genesis_post_meta');
 ?>
